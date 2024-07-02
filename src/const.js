@@ -353,7 +353,7 @@ export const GetMenu = (siteInfo, loginToken) => {
     {
       label: "Play",
       icon: "nxaaasqe.svg",
-      link: "/play",
+      link: "/games/poker",
       idname: "play",
     },
     {

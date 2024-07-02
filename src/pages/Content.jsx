@@ -12,119 +12,123 @@ const Content = (prop) => {
   return (
     <>
       <section id="content_section">
-        <section
-          className="banner-area banner-bg"
-          style={{ backgroundImage: "url(/assets/img/banner/banner_bg.png)" }}
-        >
-          {siteInfo?.shutdown ? (
-            <>
-              <Routes>
-                <Route
-                  path="/logout"
-                  element={
-                    <Suspense fallback={<MenuLoader />}>
-                      <Dashboard {...prop} />
-                    </Suspense>
-                  }
-                />
-                <Route
-                  path="/login/:u/:p"
-                  element={
-                    <Suspense fallback={<MenuLoader />}>
-                      <Dashboard {...prop} />
-                    </Suspense>
-                  }
-                />
-                <Route
-                  path="/requests"
-                  element={
-                    <Suspense fallback={<MenuLoader />}>
-                      <Admin request={true} {...prop} />
-                    </Suspense>
-                  }
-                />
-                <Route
-                  path="/admin"
-                  element={
-                    <Suspense fallback={<MenuLoader />}>
-                      <Admin {...prop} />
-                    </Suspense>
-                  }
-                />
-              </Routes>
-              <UpdatePage
-                loginToken={prop.loginToken}
-                siteInfo={prop.siteInfo}
-                openPanel={prop.openPanel}
+        {siteInfo?.shutdown ? (
+          <>
+            <Routes>
+              <Route
+                path="/logout"
+                element={
+                  <Suspense fallback={<MenuLoader />}>
+                    <Dashboard {...prop} />
+                  </Suspense>
+                }
               />
-            </>
-          ) : (
-            <>
-              <Routes>
-                <Route
-                  path="*"
-                  element={
-                    <Suspense fallback={<MenuLoader />}>
+              <Route
+                path="/login/:u/:p"
+                element={
+                  <Suspense fallback={<MenuLoader />}>
+                    <Dashboard {...prop} />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/requests"
+                element={
+                  <Suspense fallback={<MenuLoader />}>
+                    <Admin request={true} {...prop} />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/admin"
+                element={
+                  <Suspense fallback={<MenuLoader />}>
+                    <Admin {...prop} />
+                  </Suspense>
+                }
+              />
+            </Routes>
+            <UpdatePage
+              loginToken={prop.loginToken}
+              siteInfo={prop.siteInfo}
+              openPanel={prop.openPanel}
+            />
+          </>
+        ) : (
+          <>
+            <Routes>
+              <Route
+                path="*"
+                element={
+                  <Suspense fallback={<MenuLoader />}>
+                    <section
+                      className="banner-ar2ea bananer-bg"
+                      style={{
+                        backgroundImage:
+                          "url(/assets/img/banner/banner_bg.png)",
+                      }}
+                    >
                       <Dashboard {...prop} />
-                    </Suspense>
-                  }
-                />
-                <Route
-                  path="/logout"
-                  element={
-                    <Suspense fallback={<MenuLoader />}>
-                      <Dashboard {...prop} />
-                    </Suspense>
-                  }
-                />
-                <Route
-                  path="/login/:u/:p"
-                  element={
-                    <Suspense fallback={<MenuLoader />}>
-                      <Dashboard {...prop} />
-                    </Suspense>
-                  }
-                />
+                    </section>
+                  </Suspense>
+                }
+              />
 
-                <Route
-                  path="/admin"
-                  element={
-                    <Suspense fallback={<MenuLoader />}>
-                      <Admin {...prop} />
-                    </Suspense>
-                  }
-                />
+              <Route
+                path="/logout"
+                element={
+                  <Suspense fallback={<MenuLoader />}>
+                    <Dashboard {...prop} />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/login/:u/:p"
+                element={
+                  <Suspense fallback={<MenuLoader />}>
+                    <Dashboard {...prop} />
+                  </Suspense>
+                }
+              />
 
+              <Route
+                path="/admin"
+                element={
+                  <Suspense fallback={<MenuLoader />}>
+                    <Admin {...prop} />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="/admin/:username"
+                element={
+                  <Suspense fallback={<MenuLoader />}>
+                    <Admin {...prop} />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/requests"
+                element={
+                  <Suspense fallback={<MenuLoader />}>
+                    <Admin request={true} {...prop} />
+                  </Suspense>
+                }
+              />
+              <Route path="/games">
                 <Route
-                  path="/admin/:username"
+                  path=":gameId"
                   element={
                     <Suspense fallback={<MenuLoader />}>
-                      <Admin {...prop} />
+                      <Game {...prop} />
                     </Suspense>
                   }
                 />
-                <Route
-                  path="/requests"
-                  element={
-                    <Suspense fallback={<MenuLoader />}>
-                      <Admin request={true} {...prop} />
-                    </Suspense>
-                  }
-                />
-                <Route path="/games">
-                  <Route
-                    path=":gameId"
-                    element={
-                      <Suspense fallback={<MenuLoader />}>
-                        <Game {...prop} />
-                      </Suspense>
-                    }
-                  />
-                </Route>
-              </Routes>
-            </>
-          )}
-        </section>
+              </Route>
+            </Routes>
+          </>
+        )}
       </section>
     </>
   );

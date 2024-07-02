@@ -23,7 +23,8 @@ export const useUser = () => {
   var _old = loginToken;
   if (
     _old.logout &&
-    _old.username == localStorage.getItem("galaxyUserkeyToken")
+    _old.username.toLowerCase() ===
+      localStorage.getItem("galaxyUserkeyToken").toLowerCase()
   ) {
     _old.logout = false;
     setLoginToken(_old);

@@ -19,7 +19,7 @@ function RightPanel(prop) {
       menuItem: {
         key: "tabels",
         className: "farsi w-50",
-        content: <>میز های فعال</>,
+        content: <>Active Tabels</>,
       },
 
       render: () => (
@@ -69,7 +69,7 @@ function RightPanel(prop) {
                 <span></span>
               </div>
             </Segment>{" "}
-            آخرین پاداش ها
+            Last Rewards
           </>
         ),
       },
